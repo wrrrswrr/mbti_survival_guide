@@ -1,0 +1,11 @@
+{
+  "name": "mbti-survival-guide",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Mobile personality parody quiz — static HTML, CSS and JavaScript",
+  "type": "module",
+  "scripts": {
+    "dev": "node preview.mjs",
+    "start": "node preview.mjs"
+  }
+}

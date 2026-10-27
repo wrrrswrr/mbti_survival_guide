@@ -1,0 +1,56 @@
+/* Motion layer: UI only; exported cards remain still and fully visible. */
+body{background-attachment:fixed}
+#home .eyebrow{animation:entry .65s .06s both}
+#home h1{animation:entry .75s .12s both}
+#home .intro{animation:entry .75s .23s both}
+#home .hero-art{animation:entry .8s .28s both;isolation:isolate}
+#home .hero-image{animation:float-art 5s ease-in-out 1s infinite}
+#home .sticker{animation:sticker-sway 4.8s ease-in-out infinite;transform-origin:20% 70%}
+#home .sticker.two{animation-name:sticker-sway-two;animation-delay:-2s}
+#home h1 em{background:linear-gradient(110deg,#fae887 25%,#fff3bb 45%,#fae887 65%);background-size:220% 100%;animation:highlight-sweep 5s ease-in-out infinite}
+#home #start{position:relative;overflow:hidden;animation:entry .7s .4s both}
+#home #start:after{content:'';position:absolute;inset:-70% -25%;background:linear-gradient(100deg,transparent 42%,#ffffff25 50%,transparent 58%);transform:translateX(-100%);animation:button-sheen 6s 2s infinite;pointer-events:none}
+.status i{animation:signal 2.5s ease-in-out infinite}
+.marquee{display:flex;gap:30px;justify-content:flex-start;padding:11px 0}
+.marquee-track{display:flex;gap:30px;width:max-content;animation:ticker 24s linear infinite}
+.marquee-track span{flex-shrink:0}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.hero-decoration{position:absolute;z-index:-1;pointer-events:none;width:16px;height:16px;border:1.5px solid var(--ink);background:var(--yellow);animation:orbit-bob 6s ease-in-out infinite}
+.hero-decoration.d1{left:0;top:37%;border-radius:50%}.hero-decoration.d2{right:7px;top:22%;background:var(--blue);transform:rotate(15deg);animation-delay:-2s}.hero-decoration.d3{right:44px;bottom:20%;width:10px;height:10px;background:var(--green);border-radius:50%;animation-delay:-4s}
+.progress div{position:relative;transition:width .55s cubic-bezier(.2,.8,.2,1);background:linear-gradient(90deg,var(--purple),#a89bdb,var(--blue))}
+.progress div:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,#ffffff80,transparent);animation:progress-shine 2.5s linear infinite}
+.option{position:relative;overflow:hidden;transition:background .18s,box-shadow .18s,transform .22s cubic-bezier(.2,.8,.2,1)}
+.option:hover{transform:translate(-2px,-3px);box-shadow:5px 6px 0 #c8bbd8}
+.option.selected{transform:translate(-1px,-2px);box-shadow:4px 5px 0 var(--ink)}
+.option.selected .letter{background:var(--ink);color:var(--paper);border-color:var(--ink);animation:stamp .32s ease-out}
+.tap-wave{position:absolute;border-radius:50%;background:#ffffff7a;pointer-events:none;width:20px;height:20px;animation:ripple .65s ease-out forwards}
+.next{transition:transform .15s,box-shadow .15s}.next:enabled:hover{transform:translateY(-2px);box-shadow:3px 3px 0 var(--purple)}
+#loading .loading-icon{animation:loading-turn 1.4s ease-in-out infinite}
+#loading h2{animation:loading-text 1s ease-in-out infinite alternate}
+#result .result-card{animation:card-unfold .8s cubic-bezier(.16,1,.3,1) both;transform-origin:50% 15%}
+#result .result-illustration{animation:portrait-pop .85s .1s cubic-bezier(.16,1,.3,1) both}
+#result .result-code,#result .result-title{animation:entry .7s .2s both}
+#result .tag{animation:stamp .4s .35s both}#result .tag:nth-child(2){animation-delay:.45s}
+#result .axis-bar span{transform-origin:left;animation:fill-bar .95s .35s cubic-bezier(.2,.8,.2,1) both}
+#result .twist{animation:entry .8s .3s both}
+#result details[open] p{animation:entry .35s both}
+.confetti-layer{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:20;contain:strict}
+.confetti-piece{position:absolute;left:50%;top:29%;width:9px;height:13px;border:1px solid #29263070;border-radius:2px;will-change:transform,opacity}
+@keyframes entry{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes float-art{0%,100%{transform:translateY(0) rotate(-.6deg)}50%{transform:translateY(-7px) rotate(.6deg)}}
+@keyframes sticker-sway{0%,100%{transform:rotate(-8deg)}50%{transform:rotate(-4deg) translateY(-3px)}}
+@keyframes sticker-sway-two{0%,100%{transform:rotate(6deg)}50%{transform:rotate(3deg) translateY(-4px)}}
+@keyframes highlight-sweep{0%,60%,100%{background-position:100% 0}85%{background-position:0 0}}
+@keyframes button-sheen{0%,70%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+@keyframes signal{0%,100%{box-shadow:0 0 0 0 #9cba8433}50%{box-shadow:0 0 0 5px #9cba8400}}
+@keyframes ticker{to{transform:translateX(calc(-50% - 15px))}}
+@keyframes orbit-bob{0%,100%{translate:0 0;rotate:0deg}50%{translate:0 -12px;rotate:25deg}}
+@keyframes progress-shine{from{translate:-100% 0}to{translate:100% 0}}
+@keyframes stamp{0%{opacity:0;transform:scale(.8) rotate(-5deg)}70%{transform:scale(1.04) rotate(1deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes ripple{to{transform:scale(35);opacity:0}}
+@keyframes loading-turn{0%,100%{transform:rotate(-12deg) scale(.95)}50%{transform:rotate(18deg) scale(1.08)}}
+@keyframes loading-text{from{opacity:.55}to{opacity:1}}
+@keyframes card-unfold{from{opacity:0;transform:translateY(36px) scale(.93) rotate(-2deg)}to{opacity:1;transform:translateY(0) scale(1) rotate(0)}}
+@keyframes portrait-pop{from{opacity:0;transform:translateY(12px) scale(.85)}to{opacity:1;transform:none}}
+@keyframes fill-bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.confetti-layer{display:none}.marquee-track{transform:none}.hero-image{transform:none}}
